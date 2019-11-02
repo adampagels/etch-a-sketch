@@ -1,5 +1,10 @@
 let container = document.querySelector('#container');
 
+const newGridButton = document.createElement('button')
+newGridButton.addEventListener('click', createNewGrid)
+newGridButton.classList.add('grid-button');
+container.appendChild(newGridButton);
+
 let gridContainer = document.createElement('div');
 gridContainer.classList.add('grid-container');
 container.appendChild(gridContainer);
@@ -17,6 +22,7 @@ function createGrid() {
 }
 
 function createNewGrid() {
+    clearBox();
     let userInput = Number(prompt('Select new grid size', 'Example: "64"'))
     console.log(typeof userInput);
     if (userInput < 1) {
