@@ -9,6 +9,11 @@ let gridContainer = document.createElement('div');
 gridContainer.classList.add('grid-container');
 container.appendChild(gridContainer);
 
+
+function clearBox() {
+    gridContainer.innerHTML = "";
+}
+
 function createGrid() {
     for (i = 0; i < 256; i++) {
         const gridSquare = document.createElement('div')
