@@ -1,0 +1,17 @@
+.grid-container {
+    height: 400px;
+    margin: auto;
+    margin-top: 50px;
+    width: 570px;
+  }
+
+  .grid-square {
+    background-color: white;
+    border: 1px solid grey;
+    box-sizing: border-box;
+    float: left;
+  }
+  
+  .hover {
+    background-color: black;
+  }
