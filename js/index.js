@@ -10,6 +10,9 @@ function createGrid() {
         gridSquare.classList.add('grid-square')
         gridContainer.appendChild(gridSquare);
         gridSquare.style.cssText = 'height: 6%; width: 6%'
+        gridSquare.addEventListener('mouseover', () => {
+            gridSquare.classList.add('hover');
+        });
     }
 }
 
