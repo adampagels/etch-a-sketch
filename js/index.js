@@ -10,6 +10,11 @@ randomColorButton.addEventListener('click', getRandomColor)
 randomColorButton.classList.add('grid-button');
 container.appendChild(randomColorButton);
 
+const blackOnHoverButton = document.createElement('button')
+blackOnHoverButton.addEventListener('click', makeSquareBlack)
+blackOnHoverButton.classList.add('grid-button');
+container.appendChild(blackOnHoverButton);
+
 let gridContainer = document.createElement('div');
 gridContainer.classList.add('grid-container');
 container.appendChild(gridContainer);
