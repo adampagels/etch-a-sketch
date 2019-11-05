@@ -1,17 +1,17 @@
 let container = document.querySelector('#container');
 
-const newGridButton = document.createElement('button')
-newGridButton.addEventListener('click', createNewGrid)
+const newGridButton = document.createElement('button');
+newGridButton.addEventListener('click', createNewGrid);
 newGridButton.classList.add('grid-button');
 container.appendChild(newGridButton);
 
-const randomColorButton = document.createElement('button')
-randomColorButton.addEventListener('click', getRandomColor)
+const randomColorButton = document.createElement('button');
+randomColorButton.addEventListener('click', getRandomColor);
 randomColorButton.classList.add('grid-button');
 container.appendChild(randomColorButton);
 
-const blackOnHoverButton = document.createElement('button')
-blackOnHoverButton.addEventListener('click', makeSquareBlack)
+const blackOnHoverButton = document.createElement('button');
+blackOnHoverButton.addEventListener('click', makeSquareBlack);
 blackOnHoverButton.classList.add('grid-button');
 container.appendChild(blackOnHoverButton);
 
@@ -61,6 +61,7 @@ function createNewGrid() {
 
 function getRandomColor(event) {
     let gridSquare = event.target;
+    gridContainer.removeEventListener('mouseover', eraseBackgroundColor);
     gridContainer.removeEventListener('mouseover', makeSquareBlack);
     gridContainer.addEventListener('mouseover', getRandomColor);
     let red = Math.floor((Math.random() * 256) + 1);
@@ -71,9 +72,18 @@ function getRandomColor(event) {
 
 function makeSquareBlack(event) {
     let gridSquare = event.target;
+    gridContainer.removeEventListener('mouseover', eraseBackgroundColor);
     gridContainer.removeEventListener('mouseover', getRandomColor);
     gridContainer.addEventListener('mouseover', makeSquareBlack);
     return gridSquare.style.backgroundColor = 'black';
+}
+
+function eraseBackgroundColor(event) {
+    let gridSquare = event.target;
+    gridContainer.removeEventListener('mouseover', makeSquareBlack);
+    gridContainer.removeEventListener('mouseover', getRandomColor);
+    gridContainer.addEventListener('mouseover', eraseBackgroundColor);
+    return gridSquare.style.backgroundColor = 'white';
 }
 
 createGrid();
