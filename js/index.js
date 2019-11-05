@@ -9,17 +9,16 @@ let gridContainer = document.createElement('div');
 gridContainer.classList.add('grid-container');
 container.appendChild(gridContainer);
 
-
 function clearBox() {
     gridContainer.innerHTML = "";
 }
 
 function createGrid() {
     for (i = 0; i < 256; i++) {
-        const gridSquare = document.createElement('div')
-        gridSquare.classList.add('grid-square')
+        const gridSquare = document.createElement('div');
+        gridSquare.classList.add('grid-square');
         gridContainer.appendChild(gridSquare);
-        gridSquare.style.cssText = 'height: 6%; width: 6%'
+        gridSquare.style.cssText = 'height: 6%; width: 6%';
         gridSquare.addEventListener('mouseover', () => {
             gridSquare.classList.add('hover');
         });
@@ -28,8 +27,7 @@ function createGrid() {
 
 function createNewGrid() {
     clearBox();
-    let userInput = Number(prompt('Select new grid size', 'Example: "64"'))
-    console.log(typeof userInput);
+    let userInput = Number(prompt('Select new grid size', 'Example: "64"'));
     if (userInput < 1) {
         createGrid();
         alert('Please enter a number greater than 0');
@@ -49,6 +47,15 @@ function createNewGrid() {
         createGrid();
         alert('Please enter a number');
     }
+}
+
+function getRandomColor(event) {
+    gridContainer.addEventListener('mouseover', getRandomColor);
+    let gridSquare = event.target;
+    let red = Math.floor((Math.random() * 256) + 1);
+    let green = Math.floor((Math.random() * 256) + 1);
+    let blue = Math.floor((Math.random() * 256) + 1);
+    return gridSquare.style.backgroundColor = `rgb(${red},${green},${blue})`;
 }
 
 createGrid();
