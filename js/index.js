@@ -15,6 +15,11 @@ blackOnHoverButton.addEventListener('click', makeSquareBlack);
 blackOnHoverButton.classList.add('grid-button');
 container.appendChild(blackOnHoverButton);
 
+const eraserButton = document.createElement('button');
+eraserButton.addEventListener('click', eraseBackgroundColor);
+eraserButton.classList.add('grid-button');
+container.appendChild(eraserButton);
+
 let gridContainer = document.createElement('div');
 gridContainer.classList.add('grid-container');
 container.appendChild(gridContainer);
