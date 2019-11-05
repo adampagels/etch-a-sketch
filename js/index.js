@@ -63,4 +63,10 @@ function getRandomColor(event) {
     return gridSquare.style.backgroundColor = `rgb(${red},${green},${blue})`;
 }
 
+function makeSquareBlack(event) {
+    let gridSquare = event.target;
+    gridContainer.addEventListener('mouseover', makeSquareBlack);
+    gridSquare.style.backgroundColor = 'black';
+}
+
 createGrid();
