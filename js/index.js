@@ -5,6 +5,11 @@ newGridButton.addEventListener('click', createNewGrid)
 newGridButton.classList.add('grid-button');
 container.appendChild(newGridButton);
 
+const randomColorButton = document.createElement('button')
+randomColorButton.addEventListener('click', getRandomColor)
+randomColorButton.classList.add('grid-button');
+container.appendChild(randomColorButton);
+
 let gridContainer = document.createElement('div');
 gridContainer.classList.add('grid-container');
 container.appendChild(gridContainer);
@@ -50,8 +55,8 @@ function createNewGrid() {
 }
 
 function getRandomColor(event) {
-    gridContainer.addEventListener('mouseover', getRandomColor);
     let gridSquare = event.target;
+    gridContainer.addEventListener('mouseover', getRandomColor);
     let red = Math.floor((Math.random() * 256) + 1);
     let green = Math.floor((Math.random() * 256) + 1);
     let blue = Math.floor((Math.random() * 256) + 1);
