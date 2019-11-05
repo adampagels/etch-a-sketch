@@ -61,6 +61,7 @@ function createNewGrid() {
 
 function getRandomColor(event) {
     let gridSquare = event.target;
+    gridContainer.removeEventListener('mouseover', makeSquareBlack);
     gridContainer.addEventListener('mouseover', getRandomColor);
     let red = Math.floor((Math.random() * 256) + 1);
     let green = Math.floor((Math.random() * 256) + 1);
@@ -70,8 +71,9 @@ function getRandomColor(event) {
 
 function makeSquareBlack(event) {
     let gridSquare = event.target;
+    gridContainer.removeEventListener('mouseover', getRandomColor);
     gridContainer.addEventListener('mouseover', makeSquareBlack);
-    gridSquare.style.backgroundColor = 'black';
+    return gridSquare.style.backgroundColor = 'black';
 }
 
 createGrid();
