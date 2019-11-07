@@ -4,27 +4,31 @@ const newGridButton = document.createElement('button');
 newGridButton.addEventListener('click', createNewGrid);
 newGridButton.classList.add('grid-button');
 container.appendChild(newGridButton);
+newGridButton.textContent = 'Resize grid';
 
 const randomColorButton = document.createElement('button');
 randomColorButton.addEventListener('click', getRandomColor);
 randomColorButton.classList.add('grid-button');
 container.appendChild(randomColorButton);
+randomColorButton.textContent = 'Let\'s get funky!';
 
 const blackOnHoverButton = document.createElement('button');
 blackOnHoverButton.addEventListener('click', makeSquareBlack);
 blackOnHoverButton.classList.add('grid-button');
 container.appendChild(blackOnHoverButton);
+blackOnHoverButton.textContent = 'Back to black';
 
 const eraserButton = document.createElement('button');
 eraserButton.addEventListener('click', eraseBackgroundColor);
 eraserButton.classList.add('grid-button');
 container.appendChild(eraserButton);
+eraserButton.textContent = 'Eraser';
 
 let gridContainer = document.createElement('div');
 gridContainer.classList.add('grid-container');
 container.appendChild(gridContainer);
 
-function clearBox() {
+function clearGrid() {
     gridContainer.innerHTML = "";
 }
 
@@ -41,7 +45,7 @@ function createGrid() {
 }
 
 function createNewGrid() {
-    clearBox();
+    clearGrid();
     let userInput = Number(prompt('Select new grid size', 'Example: "64"'));
     if (userInput < 1) {
         createGrid();
